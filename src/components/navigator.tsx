@@ -4,6 +4,7 @@ import { AccountCircleRounded } from "@mui/icons-material";
 import {
     AppBar,
     Box,
+    Divider,
     Icon,
     IconButton,
     Toolbar,
@@ -25,8 +26,8 @@ export default function Navigator({ Children }: { Children: ReactNode }) {
                 minHeight: "100vh",
             }}
         >
-            <AppBar position="fixed">
-                <Toolbar>
+            <AppBar position="fixed" >
+                <Toolbar variant="dense">
                     <Typography
                         sx={{ flexGrow: 1 }}
                         component="div"
@@ -34,7 +35,8 @@ export default function Navigator({ Children }: { Children: ReactNode }) {
                     >
                         博客
                     </Typography>
-                    <IconButton color="inherit" onClick={() => setLogin(true)}>
+                    <Divider orientation="vertical" flexItem variant="middle" sx={{marginRight:3}}/>
+                    <IconButton color="inherit" onClick={() => setLogin(true)} >
                         <Icon>
                             <AccountCircleRounded />
                         </Icon>
@@ -42,7 +44,7 @@ export default function Navigator({ Children }: { Children: ReactNode }) {
                 </Toolbar>
             </AppBar>
             {/* 添加一个占位的 Toolbar，防止内容被导航栏遮挡 */}
-            <Toolbar />
+            <Toolbar variant="dense" />
             {/* 内容区域 */}
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 {Children}
